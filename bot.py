@@ -10,8 +10,7 @@ async def get_response(question):
     url = API_URL + question.replace(" ", "%20")
     response = requests.get(url)
     data = response.json()
-    print(data)  # Add this line to print the response
-    return data["response"]
+    return data["result"]
 
 # Telegram bot token
 API_ID = "28317577"
