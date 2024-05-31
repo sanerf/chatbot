@@ -20,6 +20,7 @@ async def get_response(question):
     }
 
     response = requests.post(API_ENDPOINT, headers=headers, json=data)
+    print(response.text)  # Print the response text
     data = response.json()
 
     # Check if the response has the correct key (e.g., 'text')
