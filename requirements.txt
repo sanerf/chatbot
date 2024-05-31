@@ -1,5 +1,4 @@
-Pyrogram
+pyrofork
 json
 asyncio
 requests
-pyrofork
