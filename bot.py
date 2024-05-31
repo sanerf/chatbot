@@ -10,10 +10,9 @@ async def get_response(question):
     url = API_URL + question.replace(" ", "%20")
     response = requests.get(url)
     data = response.json()
-    print(data)
     # Check if the response has a 'result' key
-    if 'result' in data:
-        return data['result']
+    if 'answer' in data:
+        return data['answer']
     else:
         return "Sorry, I couldn't understand the API response."
 
