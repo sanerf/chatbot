@@ -1,20 +1,32 @@
 import asyncio
 from pyrogram import Client, filters
-import openai
+import requests
 
-# OpenAI API key
-OPENAI_API_KEY = "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"
+# Google Gemini API key and endpoint
+API_KEY = "AIzaSyANJ3-DgQtabkZn2gWck1UGWItdcsMiyvw"
+API_ENDPOINT = "https://generativeai.googleapis.com/v1/models/gemini:generateText"
 
-# Initialize the OpenAI API client
-openai.api_key = OPENAI_API_KEY
-
-# Function to get response from the OpenAI API
+# Function to get response from the API
 async def get_response(question):
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": question}]
-    )
-    return response.choices[0].message.content.strip()
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {API_KEY}"
+    }
+
+    data = {
+        "prompt": question,
+        "max_output_tokens": 1024,
+        "temperature": 0.7
+    }
+
+    response = requests.post(API_ENDPOINT, headers=headers, json=data)
+    data = response.json()
+
+    # Check if the response has the correct key (e.g., 'text')
+    if 'text' in data:
+        return data['text']
+    else:
+        return "Sorry, I couldn't understand the API response."
 
 # Telegram bot token
 API_ID = "28317577"
@@ -27,7 +39,7 @@ app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 # Handler for the /start command
 @app.on_message(filters.command("start"))
 async def start_handler(client, message):
-    await message.reply("Hello! I'm an OpenAI-powered bot. Ask me anything, and I'll do my best to respond.")
+    await message.reply("Hello! I'm a Gemini AI bot. Ask me anything, and I'll do my best to respond.")
 
 # Handler for user messages
 @app.on_message(filters.text & ~filters.command([]))
