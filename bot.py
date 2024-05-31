@@ -26,7 +26,7 @@ async def start_handler(client, message):
     await message.reply("Hello! I'm a ChatGPT bot. Ask me anything, and I'll do my best to respond.")
 
 # Handler for user messages
-@app.on_message(filters.text & ~filters.command)
+@app.on_message(filters.text & ~filters.command([]))
 async def reply_handler(client, message):
     user_message = message.text
     response = await get_response(user_message)
