@@ -10,7 +10,12 @@ async def get_response(question):
     url = API_URL + question.replace(" ", "%20")
     response = requests.get(url)
     data = response.json()
-    return data["result"]
+    
+    # Check if the response has a 'result' key
+    if 'result' in data:
+        return data['result']
+    else:
+        return "Sorry, I couldn't understand the API response."
 
 # Telegram bot token
 API_ID = "28317577"
