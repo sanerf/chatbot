@@ -14,12 +14,12 @@ async def get_response(question):
     if 'answer' in data:
         return data['answer']
     else:
-        return "Sorry, I couldn't understand the API response."
+        return "Error aanu myre."
 
 # Telegram bot token
-API_ID = "28317577"
-API_HASH = "05ce3999245099cf810c22553f928b0a"
-BOT_TOKEN = "7244351715:AAGnfhyo-XDVoYPOFXdWkjk_syARNAmiGvU"
+API_ID = ""
+API_HASH = ""
+BOT_TOKEN = ""
 
 # Create a new Pyrogram client
 app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
@@ -27,7 +27,7 @@ app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 # Handler for the /start command
 @app.on_message(filters.command("start"))
 async def start_handler(client, message):
-    await message.reply("Hello! I'm a ChatGPT bot. Ask me anything, and I'll do my best to respond.")
+    await message.reply("Hello! jeevan undu malare.")
 
 # Handler for user messages
 @app.on_message(filters.text & ~filters.command([]))
