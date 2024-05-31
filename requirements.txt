@@ -1,4 +1,3 @@
 pyrofork
-json
 asyncio
 requests
