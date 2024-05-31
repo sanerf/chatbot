@@ -13,9 +13,9 @@ async def get_response(question):
     else:
         return "Error aanu myre."
 
-API_ID = ""
-API_HASH = ""
-BOT_TOKEN = ""
+API_ID = "28317577"
+API_HASH = "05ce3999245099cf810c22553f928b0a"
+BOT_TOKEN = "7244351715:AAGnfhyo-XDVoYPOFXdWkjk_syARNAmiGvU"
 
 app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
