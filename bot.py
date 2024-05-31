@@ -1,7 +1,6 @@
 import asyncio
 from pyrogram import Client, filters
 import requests
-import json
 
 # API endpoint
 API_URL = "https://chatgpt.apinepdev.workers.dev/?question="
