@@ -14,9 +14,9 @@ async def get_response(question):
     return data["response"]
 
 # Telegram bot token
-API_ID = "YOUR_API_ID"
-API_HASH = "YOUR_API_HASH"
-BOT_TOKEN = "YOUR_BOT_TOKEN"
+API_ID = "28317577"
+API_HASH = "05ce3999245099cf810c22553f928b0a"
+BOT_TOKEN = "7244351715:AAGnfhyo-XDVoYPOFXdWkjk_syARNAmiGvU"
 
 # Create a new Pyrogram client
 app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
