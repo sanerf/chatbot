@@ -9,7 +9,7 @@ API_URL = "https://chatgpt.apinepdev.workers.dev/?question="
 async def get_response(question):
     url = API_URL + question.replace(" ", "%20")
     response = requests.get(url)
-    data = json.loads(response.text)
+    data = response.json()  # Use the built-in json() method
     return data["response"]
 
 # Telegram bot token
