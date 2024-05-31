@@ -10,15 +10,11 @@ openai.api_key = OPENAI_API_KEY
 
 # Function to get response from the OpenAI API
 async def get_response(question):
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=question,
-        max_tokens=2048,
-        n=1,
-        stop=None,
-        temperature=0.5,
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": question}]
     )
-    return response.choices[0].text.strip()
+    return response.choices[0].message.content.strip()
 
 # Telegram bot token
 API_ID = "28317577"
